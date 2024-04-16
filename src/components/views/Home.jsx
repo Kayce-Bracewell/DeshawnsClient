@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { getDogs } from "../services/GetDogs"
 import { useEffect, useState } from "react";
 
@@ -20,8 +21,10 @@ export const Home = () => {
             <div className="master-container">
                     {dogs.map((dog) => {
                         return (
-                            <div key={dog.Id} className="dog-container">
-                                <h4>{dog.name}</h4>
+                            <div key={dog.id} className="dog-container">
+                                <Link to={`/dogdetails/${dog.id}`}>
+                                    <h4>{dog.name}</h4>
+                                </Link>
                                 <button className="btn" type="button">Dog Details</button>
                             </div>
                         )
